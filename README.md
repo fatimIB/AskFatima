@@ -484,44 +484,6 @@ The API validates incoming questions and applies request-level protections befor
 
 ---
 
-# Project structure
-
-```text
-AskFatima/
-│
-├── backend/
-│   ├── app/
-│   │   ├── api/
-│   │   ├── rag/
-│   │   │   ├── loader.py
-│   │   │   ├── chunker.py
-│   │   │   ├── embeddings.py
-│   │   │   ├── vector_store.py
-│   │   │   ├── retriever.py
-│   │   │   ├── generator.py
-│   │   │   └── pipeline.py
-│   │   ├── errors.py
-│   │   ├── logging_config.py
-│   │   └── main.py
-│   │
-│   ├── documents/
-│   │   ├── about.md
-│   │   ├── cv.md
-│   │   ├── projects.md
-│   │   └── skills.md
-│   │
-│   └── requirements.txt
-│
-├── frontend/
-│   ├── src/
-│   └── package.json
-│
-├── Dockerfile
-└── README.md
-```
-
----
-
 # Running locally
 
 ### Backend

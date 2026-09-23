@@ -1,0 +1,40 @@
+.git
+.gitignore
+
+# Frontend
+frontend/node_modules
+frontend/dist
+
+# Python cache
+**/__pycache__
+**/*.pyc
+**/*.pyo
+**/*.pyd
+
+# Tests/cache
+**/.pytest_cache
+**/.mypy_cache
+**/.ruff_cache
+
+# Local environments
+**/.venv
+**/venv
+**/env
+**/ENV
+
+# Secrets
+.env
+**/.env
+
+# Logs
+*.log
+logs/
+
+# IDE
+.vscode
+.idea
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini

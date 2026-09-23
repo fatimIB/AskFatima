@@ -1,0 +1,81 @@
+/* ===========================
+   Sidebar
+=========================== */
+
+.sidebar {
+    width: 25%;
+    min-width: 300px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 2rem;
+    background: var(--color-cream);
+    color: var(--text-dark);
+}
+
+/* ===========================
+   Top
+=========================== */
+
+.sidebar__top {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.sidebar__title {
+    margin-bottom: .3rem;
+    font-size: 2rem;
+    color: var(--text-dark);
+}
+
+.sidebar__subtitle {
+    margin-bottom: 1.5rem;
+    color: var(--color-primary);
+    font-weight: 500;
+}
+
+.sidebar__description {
+    line-height: 1.6;
+    color: var(--text-muted);
+}
+
+/* ===========================
+   Image
+=========================== */
+
+.sidebar__image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 2rem 0;
+}
+
+.sidebar__image img {
+    width: 220px;
+    border-radius: 20px;
+}
+
+/* ===========================
+   Footer
+=========================== */
+
+.sidebar__footer {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--color-primary);
+}
+
+.sidebar__footer a {
+    color: var(--color-primary);
+    font-weight: 500;
+    transition: .25s ease;
+}
+
+.sidebar__footer a:hover {
+    color: var(--color-secondary);
+}

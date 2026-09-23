@@ -1,0 +1,30 @@
+.service-unavailable-banner {
+  margin: 12px 16px;
+  padding: 14px 16px;
+  border-radius: 10px;
+  border: 1px solid var(--border-color);
+  background: var( --color-light);
+  text-align: center;
+}
+
+.service-unavailable-title {
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.service-unavailable-message {
+  font-size: 14px;
+  line-height: 1.5;
+  opacity: 0.85;
+}
+
+.service-unavailable-countdown {
+  margin-top: 8px;
+  font-size: 13px;
+  opacity: 0.8;
+  
+}
+
+.service-unavailable-countdown strong {
+  font-weight: 700;
+}

@@ -1,0 +1,20 @@
+/* Wrapper */
+.user-message{
+    display:flex;
+    justify-content:flex-end;
+    margin:18px 0;
+}
+
+/* Bubble */
+.user-message__bubble{
+    max-width:70%;
+    padding:14px 18px;
+    background:var(--color-beige);
+    color:var(--text-dark);
+    border-radius:22px 22px 6px 22px;
+    line-height:1.6;
+    font-size:0.98rem;
+    box-shadow:0 4px 12px rgba(0,0,0,.06);
+    word-break:break-word;
+
+}

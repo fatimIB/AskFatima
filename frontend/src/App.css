@@ -1,0 +1,12 @@
+.app{
+    display: flex;
+    height: 100vh;
+}
+
+.chat-area{
+    flex: 1;
+    display: flex;
+    padding:5px;
+    background: var(--color-cream);
+    
+}

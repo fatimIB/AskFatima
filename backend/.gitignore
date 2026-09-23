@@ -1,0 +1,56 @@
+# Environment / secrets
+.env
+.env.*
+!.env.example
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+*.egg-info/
+.eggs/
+build/
+dist/
+
+.venv/
+venv/
+env/
+ENV/
+
+# Editors
+.vscode/
+.idea/
+
+# Chroma / vector database
+chroma_db/
+chroma/
+*.chroma
+
+# Local indexes / generated data
+data/
+storage/
+
+# Logs
+*.log
+logs/
+
+# Hugging Face / model caches
+.cache/
+huggingface_cache/
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Temporary
+*.tmp
+*.temp
+*.swp
+*.swo

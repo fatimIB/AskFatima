@@ -1,0 +1,240 @@
+RAG EVALUATION REPORT
+============================================================
+
+Retriever: retriever_dense
+Timestamp: 20260921_224429
+
+Retrieval Evaluation
+------------------------------------------------------------
+Questions: 42
+Hit@1: 54.76%
+Hit@3: 76.19%
+Precision@3: 34.92%
+MRR: 0.647
+
+Average Retrieval Latency: 41.24 ms
+
+Guardrail Evaluation
+------------------------------------------------------------
+Correct Refusals: 5/5
+
+Retrieval Failures
+------------------------------------------------------------
+
+Question: Does Fatima have experience with Flask?
+Expected:
+   {'source': 'skills.md', 'section': 'Skills'}
+   {'source': 'projects.md', 'section': 'Distributed Café Management System — University Project'}
+Retrieved:
+   1. {'source': 'about.md', 'section': 'What She Is Looking For'}
+   2. {'source': 'education.md', 'section': "Master's Degree in Data Analytics & Artificial Intelligence (ADIA)"}
+   3. {'source': 'about.md', 'section': 'Professional Profile'}
+Hit@3: False
+Precision@3: 0.00
+RR: 0.000
+
+Question: What backend frameworks does Fatima know?
+Expected:
+   {'source': 'skills.md', 'section': 'Skills'}
+Retrieved:
+   1. {'source': 'about.md', 'section': 'Professional Profile'}
+   2. {'source': 'about.md', 'section': 'Working Style'}
+   3. {'source': 'experience.md', 'section': 'Web Development Internship — CNSS'}
+Hit@3: False
+Precision@3: 0.00
+RR: 0.000
+
+Question: Where did Fatima study?
+Expected:
+   {'source': 'education.md', 'section': "Master's Degree in Data Analytics & Artificial Intelligence (ADIA)"}
+   {'source': 'education.md', 'section': 'Licence degree in Data Analytics & Artificial Intelligence (ADIA)'}
+   {'source': 'education.md', 'section': 'DUT (Diplôme Universitaire de Technologie) in Computer Engineering'}
+Retrieved:
+   1. {'source': 'about.md', 'section': 'What She Is Looking For'}
+   2. {'source': 'education.md', 'section': "Master's Degree in Data Analytics & Artificial Intelligence (ADIA)"}
+   3. {'source': 'about.md', 'section': 'Professional Profile'}
+Hit@3: True
+Precision@3: 0.33
+RR: 0.500
+
+Question: What degree is Fatima currently pursuing?
+Expected:
+   {'source': 'education.md', 'section': "Master's Degree in Data Analytics & Artificial Intelligence (ADIA)"}
+Retrieved:
+   1. {'source': 'about.md', 'section': 'What She Is Looking For'}
+   2. {'source': 'education.md', 'section': "Master's Degree in Data Analytics & Artificial Intelligence (ADIA)"}
+   3. {'source': 'about.md', 'section': 'Professional Profile'}
+Hit@3: True
+Precision@3: 0.33
+RR: 0.500
+
+Question: What is Fatima's career goal?
+Expected:
+   {'source': 'about.md', 'section': 'Career Direction'}
+Retrieved:
+   1. {'source': 'about.md', 'section': 'Professional Profile'}
+   2. {'source': 'about.md', 'section': 'Career Direction'}
+   3. {'source': 'education.md', 'section': "Master's Degree in Data Analytics & Artificial Intelligence (ADIA)"}
+Hit@3: True
+Precision@3: 0.33
+RR: 0.500
+
+Question: What did Fatima work on during her FlyRank internship?
+Expected:
+   {'source': 'experience.md', 'section': 'AI Engineering Internship — FlyRank'}
+Retrieved:
+   1. {'source': 'about.md', 'section': 'What She Is Looking For'}
+   2. {'source': 'about.md', 'section': 'Professional Profile'}
+   3. {'source': 'education.md', 'section': "Master's Degree in Data Analytics & Artificial Intelligence (ADIA)"}
+Hit@3: False
+Precision@3: 0.00
+RR: 0.000
+
+Question: What did Fatima build for her CERN project?
+Expected:
+   {'source': 'projects.md', 'section': 'CERN Dimuon Event Analysis — Personal Project'}
+   {'source': 'projects.md', 'section': 'Monte Carlo Simulation & Model Validation — Personal Project'}
+Retrieved:
+   1. {'source': 'about.md', 'section': 'Professional Profile'}
+   2. {'source': 'projects.md', 'section': 'Monte Carlo Simulation & Model Validation — Personal Project'}
+   3. {'source': 'about.md', 'section': 'Working Style'}
+Hit@3: True
+Precision@3: 0.33
+RR: 0.500
+
+Question: What programming tools does she use for building web backends?
+Expected:
+   {'source': 'skills.md', 'section': 'Skills'}
+   {'source': 'experience.md', 'section': 'Full-Stack Development Internship — ITINFODEV'}
+Retrieved:
+   1. {'source': 'experience.md', 'section': 'Web Development Internship — CNSS'}
+   2. {'source': 'experience.md', 'section': 'Full-Stack Development Internship — ITINFODEV'}
+   3. {'source': 'skills.md', 'section': 'Skills'}
+Hit@3: True
+Precision@3: 0.67
+RR: 0.500
+
+Question: Where has she completed her university studies?
+Expected:
+   {'source': 'education.md', 'section': "Master's Degree in Data Analytics & Artificial Intelligence (ADIA)"}
+   {'source': 'education.md', 'section': 'Licence degree in Data Analytics & Artificial Intelligence (ADIA)'}
+   {'source': 'education.md', 'section': 'DUT (Diplôme Universitaire de Technologie) in Computer Engineering'}
+Retrieved:
+   1. {'source': 'about.md', 'section': 'What She Is Looking For'}
+   2. {'source': 'education.md', 'section': "Master's Degree in Data Analytics & Artificial Intelligence (ADIA)"}
+   3. {'source': 'experience.md', 'section': 'Web Development Internship — CNSS'}
+Hit@3: True
+Precision@3: 0.33
+RR: 0.500
+
+Question: What is she studying at the moment?
+Expected:
+   {'source': 'education.md', 'section': "Master's Degree in Data Analytics & Artificial Intelligence (ADIA)"}
+Retrieved:
+   1. {'source': 'about.md', 'section': 'What She Is Looking For'}
+   2. {'source': 'experience.md', 'section': 'Web Development Internship — CNSS'}
+   3. {'source': 'experience.md', 'section': 'Full-Stack Development Internship — ITINFODEV'}
+Hit@3: False
+Precision@3: 0.00
+RR: 0.000
+
+Question: What academic program is she enrolled in right now?
+Expected:
+   {'source': 'education.md', 'section': "Master's Degree in Data Analytics & Artificial Intelligence (ADIA)"}
+Retrieved:
+   1. {'source': 'about.md', 'section': 'What She Is Looking For'}
+   2. {'source': 'education.md', 'section': "Master's Degree in Data Analytics & Artificial Intelligence (ADIA)"}
+   3. {'source': 'experience.md', 'section': 'Web Development Internship — CNSS'}
+Hit@3: True
+Precision@3: 0.33
+RR: 0.500
+
+Question: What did she build during her FlyRank internship?
+Expected:
+   {'source': 'experience.md', 'section': 'AI Engineering Internship — FlyRank'}
+Retrieved:
+   1. {'source': 'experience.md', 'section': 'Full-Stack Development Internship — ITINFODEV'}
+   2. {'source': 'about.md', 'section': 'What She Is Looking For'}
+   3. {'source': 'experience.md', 'section': 'Web Development Internship — CNSS'}
+Hit@3: False
+Precision@3: 0.00
+RR: 0.000
+
+Question: What project did she complete as part of her FlyRank internship?
+Expected:
+   {'source': 'experience.md', 'section': 'AI Engineering Internship — FlyRank'}
+Retrieved:
+   1. {'source': 'about.md', 'section': 'What She Is Looking For'}
+   2. {'source': 'experience.md', 'section': 'Full-Stack Development Internship — ITINFODEV'}
+   3. {'source': 'experience.md', 'section': 'Web Development Internship — CNSS'}
+Hit@3: False
+Precision@3: 0.00
+RR: 0.000
+
+Question: What kind of AI project did she build during her FlyRank internship?
+Expected:
+   {'source': 'experience.md', 'section': 'AI Engineering Internship — FlyRank'}
+Retrieved:
+   1. {'source': 'about.md', 'section': 'Career Direction'}
+   2. {'source': 'about.md', 'section': 'What She Is Looking For'}
+   3. {'source': 'about.md', 'section': 'Professional Profile'}
+Hit@3: False
+Precision@3: 0.00
+RR: 0.000
+
+Question: What is she currently developing?
+Expected:
+   {'source': 'projects.md', 'section': 'AskFatima — Personal RAG Project (ongoing)'}
+Retrieved:
+   1. {'source': 'about.md', 'section': 'What She Is Looking For'}
+   2. {'source': 'experience.md', 'section': 'Full-Stack Development Internship — ITINFODEV'}
+   3. {'source': 'about.md', 'section': 'Working Style'}
+Hit@3: False
+Precision@3: 0.00
+RR: 0.000
+
+Question: What experience does she have with containerized applications?
+Expected:
+   {'source': 'skills.md', 'section': 'Skills'}
+   {'source': 'projects.md', 'section': 'Distributed Café Management System — University Project'}
+Retrieved:
+   1. {'source': 'experience.md', 'section': 'Full-Stack Development Internship — ITINFODEV'}
+   2. {'source': 'experience.md', 'section': 'Web Development Internship — CNSS'}
+   3. {'source': 'about.md', 'section': 'What She Is Looking For'}
+Hit@3: False
+Precision@3: 0.00
+RR: 0.000
+
+Question: What experience does she have with Docker?
+Expected:
+   {'source': 'skills.md', 'section': 'Skills'}
+   {'source': 'projects.md', 'section': 'Distributed Café Management System — University Project'}
+Retrieved:
+   1. {'source': 'experience.md', 'section': 'Full-Stack Development Internship — ITINFODEV'}
+   2. {'source': 'experience.md', 'section': 'Web Development Internship — CNSS'}
+   3. {'source': 'skills.md', 'section': 'Skills'}
+Hit@3: True
+Precision@3: 0.33
+RR: 0.333
+
+Question: Has Fatima completed the Applied Data Science Lab?
+Expected:
+   {'source': 'certificates.md', 'section': 'Certificates'}
+Retrieved:
+   1. {'source': 'education.md', 'section': "Master's Degree in Data Analytics & Artificial Intelligence (ADIA)"}
+   2. {'source': 'about.md', 'section': 'What She Is Looking For'}
+   3. {'source': 'about.md', 'section': 'Professional Profile'}
+Hit@3: False
+Precision@3: 0.00
+RR: 0.000
+
+Question: What job simulations has Fatima completed?
+Expected:
+   {'source': 'certificates.md', 'section': 'Certificates'}
+Retrieved:
+   1. {'source': 'about.md', 'section': 'What She Is Looking For'}
+   2. {'source': 'about.md', 'section': 'Professional Profile'}
+   3. {'source': 'certificates.md', 'section': 'Certificates'}
+Hit@3: True
+Precision@3: 0.33
+RR: 0.333

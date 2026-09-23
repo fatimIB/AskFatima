@@ -1,0 +1,570 @@
+{
+    "retriever": "retriever_dense",
+    "timestamp": "20260921_224429",
+    "retrieval": {
+        "questions": 42,
+        "hit_at_1": 0.5476190476190477,
+        "hit_at_3": 0.7619047619047619,
+        "precision_at_3": 0.3492063492063494,
+        "mrr": 0.6468253968253967,
+        "average_latency_seconds": 0.04123940000205212,
+        "hit_at_1_count": 23,
+        "hit_at_3_count": 32,
+        "failures": [
+            {
+                "question": "Does Fatima have experience with Flask?",
+                "expected": [
+                    {
+                        "source": "skills.md",
+                        "section": "Skills"
+                    },
+                    {
+                        "source": "projects.md",
+                        "section": "Distributed Café Management System — University Project"
+                    }
+                ],
+                "retrieved": [
+                    {
+                        "source": "about.md",
+                        "section": "What She Is Looking For"
+                    },
+                    {
+                        "source": "education.md",
+                        "section": "Master's Degree in Data Analytics & Artificial Intelligence (ADIA)"
+                    },
+                    {
+                        "source": "about.md",
+                        "section": "Professional Profile"
+                    }
+                ],
+                "found_in_top3": false,
+                "hit3": false,
+                "precision3": 0.0,
+                "reciprocal_rank": 0.0
+            },
+            {
+                "question": "What backend frameworks does Fatima know?",
+                "expected": [
+                    {
+                        "source": "skills.md",
+                        "section": "Skills"
+                    }
+                ],
+                "retrieved": [
+                    {
+                        "source": "about.md",
+                        "section": "Professional Profile"
+                    },
+                    {
+                        "source": "about.md",
+                        "section": "Working Style"
+                    },
+                    {
+                        "source": "experience.md",
+                        "section": "Web Development Internship — CNSS"
+                    }
+                ],
+                "found_in_top3": false,
+                "hit3": false,
+                "precision3": 0.0,
+                "reciprocal_rank": 0.0
+            },
+            {
+                "question": "Where did Fatima study?",
+                "expected": [
+                    {
+                        "source": "education.md",
+                        "section": "Master's Degree in Data Analytics & Artificial Intelligence (ADIA)"
+                    },
+                    {
+                        "source": "education.md",
+                        "section": "Licence degree in Data Analytics & Artificial Intelligence (ADIA)"
+                    },
+                    {
+                        "source": "education.md",
+                        "section": "DUT (Diplôme Universitaire de Technologie) in Computer Engineering"
+                    }
+                ],
+                "retrieved": [
+                    {
+                        "source": "about.md",
+                        "section": "What She Is Looking For"
+                    },
+                    {
+                        "source": "education.md",
+                        "section": "Master's Degree in Data Analytics & Artificial Intelligence (ADIA)"
+                    },
+                    {
+                        "source": "about.md",
+                        "section": "Professional Profile"
+                    }
+                ],
+                "found_in_top3": true,
+                "hit3": true,
+                "precision3": 0.3333333333333333,
+                "reciprocal_rank": 0.5
+            },
+            {
+                "question": "What degree is Fatima currently pursuing?",
+                "expected": [
+                    {
+                        "source": "education.md",
+                        "section": "Master's Degree in Data Analytics & Artificial Intelligence (ADIA)"
+                    }
+                ],
+                "retrieved": [
+                    {
+                        "source": "about.md",
+                        "section": "What She Is Looking For"
+                    },
+                    {
+                        "source": "education.md",
+                        "section": "Master's Degree in Data Analytics & Artificial Intelligence (ADIA)"
+                    },
+                    {
+                        "source": "about.md",
+                        "section": "Professional Profile"
+                    }
+                ],
+                "found_in_top3": true,
+                "hit3": true,
+                "precision3": 0.3333333333333333,
+                "reciprocal_rank": 0.5
+            },
+            {
+                "question": "What is Fatima's career goal?",
+                "expected": [
+                    {
+                        "source": "about.md",
+                        "section": "Career Direction"
+                    }
+                ],
+                "retrieved": [
+                    {
+                        "source": "about.md",
+                        "section": "Professional Profile"
+                    },
+                    {
+                        "source": "about.md",
+                        "section": "Career Direction"
+                    },
+                    {
+                        "source": "education.md",
+                        "section": "Master's Degree in Data Analytics & Artificial Intelligence (ADIA)"
+                    }
+                ],
+                "found_in_top3": true,
+                "hit3": true,
+                "precision3": 0.3333333333333333,
+                "reciprocal_rank": 0.5
+            },
+            {
+                "question": "What did Fatima work on during her FlyRank internship?",
+                "expected": [
+                    {
+                        "source": "experience.md",
+                        "section": "AI Engineering Internship — FlyRank"
+                    }
+                ],
+                "retrieved": [
+                    {
+                        "source": "about.md",
+                        "section": "What She Is Looking For"
+                    },
+                    {
+                        "source": "about.md",
+                        "section": "Professional Profile"
+                    },
+                    {
+                        "source": "education.md",
+                        "section": "Master's Degree in Data Analytics & Artificial Intelligence (ADIA)"
+                    }
+                ],
+                "found_in_top3": false,
+                "hit3": false,
+                "precision3": 0.0,
+                "reciprocal_rank": 0.0
+            },
+            {
+                "question": "What did Fatima build for her CERN project?",
+                "expected": [
+                    {
+                        "source": "projects.md",
+                        "section": "CERN Dimuon Event Analysis — Personal Project"
+                    },
+                    {
+                        "source": "projects.md",
+                        "section": "Monte Carlo Simulation & Model Validation — Personal Project"
+                    }
+                ],
+                "retrieved": [
+                    {
+                        "source": "about.md",
+                        "section": "Professional Profile"
+                    },
+                    {
+                        "source": "projects.md",
+                        "section": "Monte Carlo Simulation & Model Validation — Personal Project"
+                    },
+                    {
+                        "source": "about.md",
+                        "section": "Working Style"
+                    }
+                ],
+                "found_in_top3": true,
+                "hit3": true,
+                "precision3": 0.3333333333333333,
+                "reciprocal_rank": 0.5
+            },
+            {
+                "question": "What programming tools does she use for building web backends?",
+                "expected": [
+                    {
+                        "source": "skills.md",
+                        "section": "Skills"
+                    },
+                    {
+                        "source": "experience.md",
+                        "section": "Full-Stack Development Internship — ITINFODEV"
+                    }
+                ],
+                "retrieved": [
+                    {
+                        "source": "experience.md",
+                        "section": "Web Development Internship — CNSS"
+                    },
+                    {
+                        "source": "experience.md",
+                        "section": "Full-Stack Development Internship — ITINFODEV"
+                    },
+                    {
+                        "source": "skills.md",
+                        "section": "Skills"
+                    }
+                ],
+                "found_in_top3": true,
+                "hit3": true,
+                "precision3": 0.6666666666666666,
+                "reciprocal_rank": 0.5
+            },
+            {
+                "question": "Where has she completed her university studies?",
+                "expected": [
+                    {
+                        "source": "education.md",
+                        "section": "Master's Degree in Data Analytics & Artificial Intelligence (ADIA)"
+                    },
+                    {
+                        "source": "education.md",
+                        "section": "Licence degree in Data Analytics & Artificial Intelligence (ADIA)"
+                    },
+                    {
+                        "source": "education.md",
+                        "section": "DUT (Diplôme Universitaire de Technologie) in Computer Engineering"
+                    }
+                ],
+                "retrieved": [
+                    {
+                        "source": "about.md",
+                        "section": "What She Is Looking For"
+                    },
+                    {
+                        "source": "education.md",
+                        "section": "Master's Degree in Data Analytics & Artificial Intelligence (ADIA)"
+                    },
+                    {
+                        "source": "experience.md",
+                        "section": "Web Development Internship — CNSS"
+                    }
+                ],
+                "found_in_top3": true,
+                "hit3": true,
+                "precision3": 0.3333333333333333,
+                "reciprocal_rank": 0.5
+            },
+            {
+                "question": "What is she studying at the moment?",
+                "expected": [
+                    {
+                        "source": "education.md",
+                        "section": "Master's Degree in Data Analytics & Artificial Intelligence (ADIA)"
+                    }
+                ],
+                "retrieved": [
+                    {
+                        "source": "about.md",
+                        "section": "What She Is Looking For"
+                    },
+                    {
+                        "source": "experience.md",
+                        "section": "Web Development Internship — CNSS"
+                    },
+                    {
+                        "source": "experience.md",
+                        "section": "Full-Stack Development Internship — ITINFODEV"
+                    }
+                ],
+                "found_in_top3": false,
+                "hit3": false,
+                "precision3": 0.0,
+                "reciprocal_rank": 0.0
+            },
+            {
+                "question": "What academic program is she enrolled in right now?",
+                "expected": [
+                    {
+                        "source": "education.md",
+                        "section": "Master's Degree in Data Analytics & Artificial Intelligence (ADIA)"
+                    }
+                ],
+                "retrieved": [
+                    {
+                        "source": "about.md",
+                        "section": "What She Is Looking For"
+                    },
+                    {
+                        "source": "education.md",
+                        "section": "Master's Degree in Data Analytics & Artificial Intelligence (ADIA)"
+                    },
+                    {
+                        "source": "experience.md",
+                        "section": "Web Development Internship — CNSS"
+                    }
+                ],
+                "found_in_top3": true,
+                "hit3": true,
+                "precision3": 0.3333333333333333,
+                "reciprocal_rank": 0.5
+            },
+            {
+                "question": "What did she build during her FlyRank internship?",
+                "expected": [
+                    {
+                        "source": "experience.md",
+                        "section": "AI Engineering Internship — FlyRank"
+                    }
+                ],
+                "retrieved": [
+                    {
+                        "source": "experience.md",
+                        "section": "Full-Stack Development Internship — ITINFODEV"
+                    },
+                    {
+                        "source": "about.md",
+                        "section": "What She Is Looking For"
+                    },
+                    {
+                        "source": "experience.md",
+                        "section": "Web Development Internship — CNSS"
+                    }
+                ],
+                "found_in_top3": false,
+                "hit3": false,
+                "precision3": 0.0,
+                "reciprocal_rank": 0.0
+            },
+            {
+                "question": "What project did she complete as part of her FlyRank internship?",
+                "expected": [
+                    {
+                        "source": "experience.md",
+                        "section": "AI Engineering Internship — FlyRank"
+                    }
+                ],
+                "retrieved": [
+                    {
+                        "source": "about.md",
+                        "section": "What She Is Looking For"
+                    },
+                    {
+                        "source": "experience.md",
+                        "section": "Full-Stack Development Internship — ITINFODEV"
+                    },
+                    {
+                        "source": "experience.md",
+                        "section": "Web Development Internship — CNSS"
+                    }
+                ],
+                "found_in_top3": false,
+                "hit3": false,
+                "precision3": 0.0,
+                "reciprocal_rank": 0.0
+            },
+            {
+                "question": "What kind of AI project did she build during her FlyRank internship?",
+                "expected": [
+                    {
+                        "source": "experience.md",
+                        "section": "AI Engineering Internship — FlyRank"
+                    }
+                ],
+                "retrieved": [
+                    {
+                        "source": "about.md",
+                        "section": "Career Direction"
+                    },
+                    {
+                        "source": "about.md",
+                        "section": "What She Is Looking For"
+                    },
+                    {
+                        "source": "about.md",
+                        "section": "Professional Profile"
+                    }
+                ],
+                "found_in_top3": false,
+                "hit3": false,
+                "precision3": 0.0,
+                "reciprocal_rank": 0.0
+            },
+            {
+                "question": "What is she currently developing?",
+                "expected": [
+                    {
+                        "source": "projects.md",
+                        "section": "AskFatima — Personal RAG Project (ongoing)"
+                    }
+                ],
+                "retrieved": [
+                    {
+                        "source": "about.md",
+                        "section": "What She Is Looking For"
+                    },
+                    {
+                        "source": "experience.md",
+                        "section": "Full-Stack Development Internship — ITINFODEV"
+                    },
+                    {
+                        "source": "about.md",
+                        "section": "Working Style"
+                    }
+                ],
+                "found_in_top3": false,
+                "hit3": false,
+                "precision3": 0.0,
+                "reciprocal_rank": 0.0
+            },
+            {
+                "question": "What experience does she have with containerized applications?",
+                "expected": [
+                    {
+                        "source": "skills.md",
+                        "section": "Skills"
+                    },
+                    {
+                        "source": "projects.md",
+                        "section": "Distributed Café Management System — University Project"
+                    }
+                ],
+                "retrieved": [
+                    {
+                        "source": "experience.md",
+                        "section": "Full-Stack Development Internship — ITINFODEV"
+                    },
+                    {
+                        "source": "experience.md",
+                        "section": "Web Development Internship — CNSS"
+                    },
+                    {
+                        "source": "about.md",
+                        "section": "What She Is Looking For"
+                    }
+                ],
+                "found_in_top3": false,
+                "hit3": false,
+                "precision3": 0.0,
+                "reciprocal_rank": 0.0
+            },
+            {
+                "question": "What experience does she have with Docker?",
+                "expected": [
+                    {
+                        "source": "skills.md",
+                        "section": "Skills"
+                    },
+                    {
+                        "source": "projects.md",
+                        "section": "Distributed Café Management System — University Project"
+                    }
+                ],
+                "retrieved": [
+                    {
+                        "source": "experience.md",
+                        "section": "Full-Stack Development Internship — ITINFODEV"
+                    },
+                    {
+                        "source": "experience.md",
+                        "section": "Web Development Internship — CNSS"
+                    },
+                    {
+                        "source": "skills.md",
+                        "section": "Skills"
+                    }
+                ],
+                "found_in_top3": true,
+                "hit3": true,
+                "precision3": 0.3333333333333333,
+                "reciprocal_rank": 0.3333333333333333
+            },
+            {
+                "question": "Has Fatima completed the Applied Data Science Lab?",
+                "expected": [
+                    {
+                        "source": "certificates.md",
+                        "section": "Certificates"
+                    }
+                ],
+                "retrieved": [
+                    {
+                        "source": "education.md",
+                        "section": "Master's Degree in Data Analytics & Artificial Intelligence (ADIA)"
+                    },
+                    {
+                        "source": "about.md",
+                        "section": "What She Is Looking For"
+                    },
+                    {
+                        "source": "about.md",
+                        "section": "Professional Profile"
+                    }
+                ],
+                "found_in_top3": false,
+                "hit3": false,
+                "precision3": 0.0,
+                "reciprocal_rank": 0.0
+            },
+            {
+                "question": "What job simulations has Fatima completed?",
+                "expected": [
+                    {
+                        "source": "certificates.md",
+                        "section": "Certificates"
+                    }
+                ],
+                "retrieved": [
+                    {
+                        "source": "about.md",
+                        "section": "What She Is Looking For"
+                    },
+                    {
+                        "source": "about.md",
+                        "section": "Professional Profile"
+                    },
+                    {
+                        "source": "certificates.md",
+                        "section": "Certificates"
+                    }
+                ],
+                "found_in_top3": true,
+                "hit3": true,
+                "precision3": 0.3333333333333333,
+                "reciprocal_rank": 0.3333333333333333
+            }
+        ]
+    },
+    "guardrails": {
+        "correct_refusals": 5,
+        "total": 5,
+        "failures": []
+    }
+}

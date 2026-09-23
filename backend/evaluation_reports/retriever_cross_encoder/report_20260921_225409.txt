@@ -1,0 +1,136 @@
+RAG EVALUATION REPORT
+============================================================
+
+Retriever: retriever_cross_encoder
+Timestamp: 20260921_225409
+
+Retrieval Evaluation
+------------------------------------------------------------
+Questions: 42
+Hit@1: 76.19%
+Hit@3: 92.86%
+Precision@3: 41.27%
+MRR: 0.833
+
+Average Retrieval Latency: 2143.26 ms
+
+Guardrail Evaluation
+------------------------------------------------------------
+Correct Refusals: 5/5
+
+Retrieval Failures
+------------------------------------------------------------
+
+Question: Does Fatima have experience with Flask?
+Expected:
+   {'source': 'skills.md', 'section': 'Skills'}
+   {'source': 'projects.md', 'section': 'Distributed Café Management System — University Project'}
+Retrieved:
+   1. {'source': 'experience.md', 'section': 'Web Development Internship — CNSS'}
+   2. {'source': 'experience.md', 'section': 'Full-Stack Development Internship — ITINFODEV'}
+   3. {'source': 'skills.md', 'section': 'Skills'}
+Hit@3: True
+Precision@3: 0.33
+RR: 0.333
+
+Question: What machine learning libraries does she use?
+Expected:
+   {'source': 'skills.md', 'section': 'Skills'}
+Retrieved:
+   1. {'source': 'projects.md', 'section': 'CERN Dimuon Event Analysis — Personal Project'}
+   2. {'source': 'projects.md', 'section': 'Monte Carlo Simulation & Model Validation — Personal Project'}
+   3. {'source': 'skills.md', 'section': 'Skills'}
+Hit@3: True
+Precision@3: 0.33
+RR: 0.333
+
+Question: What programming tools does she use for building web backends?
+Expected:
+   {'source': 'skills.md', 'section': 'Skills'}
+   {'source': 'experience.md', 'section': 'Full-Stack Development Internship — ITINFODEV'}
+Retrieved:
+   1. {'source': 'experience.md', 'section': 'Web Development Internship — CNSS'}
+   2. {'source': 'experience.md', 'section': 'Full-Stack Development Internship — ITINFODEV'}
+   3. {'source': 'skills.md', 'section': 'Skills'}
+Hit@3: True
+Precision@3: 0.67
+RR: 0.500
+
+Question: What tools does she use when working on machine learning projects?
+Expected:
+   {'source': 'skills.md', 'section': 'Skills'}
+Retrieved:
+   1. {'source': 'projects.md', 'section': 'CERN Dimuon Event Analysis — Personal Project'}
+   2. {'source': 'skills.md', 'section': 'Skills'}
+   3. {'source': 'projects.md', 'section': 'Monte Carlo Simulation & Model Validation — Personal Project'}
+Hit@3: True
+Precision@3: 0.33
+RR: 0.500
+
+Question: Which libraries has she used for training machine learning models?
+Expected:
+   {'source': 'skills.md', 'section': 'Skills'}
+Retrieved:
+   1. {'source': 'projects.md', 'section': 'CERN Dimuon Event Analysis — Personal Project'}
+   2. {'source': 'projects.md', 'section': 'Monte Carlo Simulation & Model Validation — Personal Project'}
+   3. {'source': 'skills.md', 'section': 'Skills'}
+Hit@3: True
+Precision@3: 0.33
+RR: 0.333
+
+Question: What is she studying at the moment?
+Expected:
+   {'source': 'education.md', 'section': "Master's Degree in Data Analytics & Artificial Intelligence (ADIA)"}
+Retrieved:
+   1. {'source': 'about.md', 'section': 'What She Is Looking For'}
+   2. {'source': 'about.md', 'section': 'Professional Profile'}
+   3. {'source': 'about.md', 'section': 'Career Direction'}
+Hit@3: False
+Precision@3: 0.00
+RR: 0.000
+
+Question: What academic program is she enrolled in right now?
+Expected:
+   {'source': 'education.md', 'section': "Master's Degree in Data Analytics & Artificial Intelligence (ADIA)"}
+Retrieved:
+   1. {'source': 'about.md', 'section': 'What She Is Looking For'}
+   2. {'source': 'education.md', 'section': "Master's Degree in Data Analytics & Artificial Intelligence (ADIA)"}
+   3. {'source': 'education.md', 'section': 'Licence degree in Data Analytics & Artificial Intelligence (ADIA)'}
+Hit@3: True
+Precision@3: 0.33
+RR: 0.500
+
+Question: What kind of role does she want to pursue after her studies?
+Expected:
+   {'source': 'about.md', 'section': 'Career Direction'}
+Retrieved:
+   1. {'source': 'about.md', 'section': 'What She Is Looking For'}
+   2. {'source': 'about.md', 'section': 'Career Direction'}
+   3. {'source': 'about.md', 'section': 'Professional Profile'}
+Hit@3: True
+Precision@3: 0.33
+RR: 0.500
+
+Question: What experience does she have with containerized applications?
+Expected:
+   {'source': 'skills.md', 'section': 'Skills'}
+   {'source': 'projects.md', 'section': 'Distributed Café Management System — University Project'}
+Retrieved:
+   1. {'source': 'experience.md', 'section': 'Web Development Internship — CNSS'}
+   2. {'source': 'experience.md', 'section': 'Full-Stack Development Internship — ITINFODEV'}
+   3. {'source': 'experience.md', 'section': 'AI Engineering Internship — FlyRank'}
+Hit@3: False
+Precision@3: 0.00
+RR: 0.000
+
+Question: What experience does she have with Docker?
+Expected:
+   {'source': 'skills.md', 'section': 'Skills'}
+   {'source': 'projects.md', 'section': 'Distributed Café Management System — University Project'}
+Retrieved:
+   1. {'source': 'experience.md', 'section': 'Web Development Internship — CNSS'}
+   2. {'source': 'experience.md', 'section': 'Full-Stack Development Internship — ITINFODEV'}
+   3. {'source': 'experience.md', 'section': 'AI Engineering Internship — FlyRank'}
+Hit@3: False
+Precision@3: 0.00
+RR: 0.000

@@ -1,0 +1,202 @@
+
+/* ===========================
+   Bot Message
+=========================== */
+
+.bot-message {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin: 18px 0;
+}
+
+
+/* ===========================
+   Avatar
+=========================== */
+
+.bot-avatar {
+    width: 42px;
+    height: 42px;
+
+    border-radius: 50%;
+    overflow: hidden;
+
+    flex-shrink: 0;
+}
+
+.bot-avatar img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+}
+
+
+/* ===========================
+   Bubble
+=========================== */
+
+.bot-bubble {
+    max-width: 70%;
+
+    background: var(--color-olive);
+    color: var(--text-dark);
+
+    padding: 14px 18px;
+
+    border-radius: 18px;
+    border-top-left-radius: 6px;
+
+    box-shadow: var(--shadow);
+
+    line-height: 1.6;
+}
+
+/* markdown */
+.bot-answer p {
+    margin: 0 0 10px 0;
+    line-height: 1.6;
+}
+
+.bot-answer ul {
+    margin: 8px 0 10px 0;
+    padding-left: 22px;
+}
+
+.bot-answer li {
+    margin-bottom: 7px;
+    padding-left: 3px;
+    line-height: 1.6;
+}
+
+.bot-answer li:last-child {
+    margin-bottom: 0;
+}
+
+.bot-answer strong {
+    font-weight: 600;
+}
+
+
+/* ===========================
+   Sources
+=========================== */
+
+.bot-sources {
+    margin-top: 14px;
+    padding-top: 12px;
+
+    border-top: 1px solid rgba(43, 43, 43, 0.15);
+}
+
+
+/* Toggle */
+
+.bot-sources__toggle {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+
+    padding: 0;
+
+    background: transparent;
+
+    color: var(--color-primary);
+
+    font-family: inherit;
+    font-size: 0.82rem;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+.bot-sources__toggle:hover {
+    color: var(--color-secondary);
+}
+
+
+/* Number of sources */
+
+.bot-sources__count {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    min-width: 20px;
+    height: 20px;
+
+    padding: 0 6px;
+
+    border-radius: 999px;
+
+    background: rgba(255, 255, 255, 0.35);
+
+    font-size: 0.72rem;
+}
+
+
+/* ===========================
+   Source List
+=========================== */
+
+.bot-sources__list {
+    display: flex;
+    flex-direction: column;
+
+    gap: 7px;
+
+    margin-top: 10px;
+}
+
+
+/* Individual source */
+
+.bot-source {
+    display: flex;
+    align-items: center;
+
+    gap: 6px;
+
+    padding: 8px 10px;
+
+    border-radius: 9px;
+
+    background: rgba(255, 255, 255, 0.28);
+
+    font-size: 0.78rem;
+
+    transition: 0.2s ease;
+}
+
+.bot-source:hover {
+    background: rgba(255, 255, 255, 0.45);
+}
+
+
+/* Filename */
+
+.bot-source__file {
+    font-weight: 600;
+    color: var(--color-primary);
+}
+
+
+/* Separator */
+
+.bot-source__separator {
+    color: var(--text-muted);
+}
+
+
+/* Section */
+
+.bot-source__section {
+    color: var(--text-muted);
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}

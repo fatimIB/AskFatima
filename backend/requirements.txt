@@ -1,0 +1,13 @@
+fastapi
+uvicorn[standard]
+python-dotenv
+groq
+google-genai
+langchain-chroma
+langchain-huggingface
+langchain_text_splitters 
+chromadb
+sentence-transformers
+rank-bm25
+transformers
+pydantic

@@ -1,13 +1,13 @@
 {
     "retriever": "retriever_cross_encoder",
-    "timestamp": "20260921_225409",
+    "timestamp": "20260924_230714",
     "retrieval": {
         "questions": 42,
         "hit_at_1": 0.7619047619047619,
         "hit_at_3": 0.9285714285714286,
-        "precision_at_3": 0.41269841269841273,
+        "precision_at_3": 0.42857142857142866,
         "mrr": 0.8333333333333334,
-        "average_latency_seconds": 2.143255433332386,
+        "average_latency_seconds": 1.52851444286006,
         "hit_at_1_count": 32,
         "hit_at_3_count": 39,
         "failures": [
@@ -78,6 +78,10 @@
                     },
                     {
                         "source": "experience.md",
+                        "section": "Backend AI Internship — FlyRank"
+                    },
+                    {
+                        "source": "experience.md",
                         "section": "Full-Stack Development Internship — ITINFODEV"
                     }
                 ],
@@ -88,11 +92,11 @@
                     },
                     {
                         "source": "experience.md",
-                        "section": "Full-Stack Development Internship — ITINFODEV"
+                        "section": "Backend AI Internship — FlyRank"
                     },
                     {
-                        "source": "skills.md",
-                        "section": "Skills"
+                        "source": "experience.md",
+                        "section": "Full-Stack Development Internship — ITINFODEV"
                     }
                 ],
                 "found_in_top3": true,
@@ -258,7 +262,7 @@
                     },
                     {
                         "source": "experience.md",
-                        "section": "AI Engineering Internship — FlyRank"
+                        "section": "Backend AI Internship — FlyRank"
                     }
                 ],
                 "found_in_top3": false,
@@ -289,7 +293,7 @@
                     },
                     {
                         "source": "experience.md",
-                        "section": "AI Engineering Internship — FlyRank"
+                        "section": "Backend AI Internship — FlyRank"
                     }
                 ],
                 "found_in_top3": false,

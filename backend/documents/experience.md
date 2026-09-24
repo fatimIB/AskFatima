@@ -1,12 +1,12 @@
 # Experience
 
-## AI Engineering Internship — FlyRank
+## Backend AI Internship — FlyRank
 
-July 2026 – September 2026
+**July 2026 – September 2026**
 
-Fatima completed an AI Engineering internship at FlyRank, where she worked on an AI-powered image understanding and semantic content matching system.
+Fatima completed a **Backend AI internship at FlyRank**, where she worked on an AI-powered image understanding and semantic content matching system.
 
-Her main project focused on automatically determining whether an image is semantically relevant to a piece of content. She worked on the backend and AI components of the system, including image understanding, embeddings, similarity search, and API integration.
+Her main project focused on automatically determining whether an image was semantically relevant to a piece of content. She worked on the **backend and AI components** of the system, including image understanding, embeddings, similarity search, and API integration.
 
 Her work included:
 
@@ -19,9 +19,9 @@ Her work included:
 * Working with **SQLite** and **SQLAlchemy** for application data management.
 * Testing and refining the system to improve the reliability of AI-generated results.
 
-Technologies included **Python, Ollama, LLaVA, sentence-transformers, embeddings, FastAPI, SQLite, and SQLAlchemy**.
+**Technologies:** Python, Ollama, LLaVA, sentence-transformers, embeddings, FastAPI, SQLite, and SQLAlchemy.
 
-This internship gave Fatima practical experience building and integrating AI components into a real software application and strengthened her experience in applied AI engineering.
+This internship provided practical experience in **backend AI development**, including integrating AI models, building backend functionality, working with embeddings and semantic search, and developing applied AI components for a software application.
 
 ## Full-Stack Development Internship — ITINFODEV
 

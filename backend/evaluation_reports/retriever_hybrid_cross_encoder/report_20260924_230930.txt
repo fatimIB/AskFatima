@@ -2,17 +2,17 @@ RAG EVALUATION REPORT
 ============================================================
 
 Retriever: retriever_hybrid_cross_encoder
-Timestamp: 20260921_225636
+Timestamp: 20260924_230930
 
 Retrieval Evaluation
 ------------------------------------------------------------
 Questions: 42
 Hit@1: 76.19%
 Hit@3: 92.86%
-Precision@3: 41.27%
+Precision@3: 42.86%
 MRR: 0.833
 
-Average Retrieval Latency: 1122.20 ms
+Average Retrieval Latency: 813.91 ms
 
 Guardrail Evaluation
 ------------------------------------------------------------
@@ -47,11 +47,12 @@ RR: 0.333
 Question: What programming tools does she use for building web backends?
 Expected:
    {'source': 'skills.md', 'section': 'Skills'}
+   {'source': 'experience.md', 'section': 'Backend AI Internship — FlyRank'}
    {'source': 'experience.md', 'section': 'Full-Stack Development Internship — ITINFODEV'}
 Retrieved:
    1. {'source': 'experience.md', 'section': 'Web Development Internship — CNSS'}
-   2. {'source': 'experience.md', 'section': 'Full-Stack Development Internship — ITINFODEV'}
-   3. {'source': 'skills.md', 'section': 'Skills'}
+   2. {'source': 'experience.md', 'section': 'Backend AI Internship — FlyRank'}
+   3. {'source': 'experience.md', 'section': 'Full-Stack Development Internship — ITINFODEV'}
 Hit@3: True
 Precision@3: 0.67
 RR: 0.500
@@ -118,7 +119,7 @@ Expected:
 Retrieved:
    1. {'source': 'experience.md', 'section': 'Web Development Internship — CNSS'}
    2. {'source': 'experience.md', 'section': 'Full-Stack Development Internship — ITINFODEV'}
-   3. {'source': 'experience.md', 'section': 'AI Engineering Internship — FlyRank'}
+   3. {'source': 'experience.md', 'section': 'Backend AI Internship — FlyRank'}
 Hit@3: False
 Precision@3: 0.00
 RR: 0.000
@@ -130,7 +131,7 @@ Expected:
 Retrieved:
    1. {'source': 'experience.md', 'section': 'Web Development Internship — CNSS'}
    2. {'source': 'experience.md', 'section': 'Full-Stack Development Internship — ITINFODEV'}
-   3. {'source': 'experience.md', 'section': 'AI Engineering Internship — FlyRank'}
+   3. {'source': 'experience.md', 'section': 'Backend AI Internship — FlyRank'}
 Hit@3: False
 Precision@3: 0.00
 RR: 0.000

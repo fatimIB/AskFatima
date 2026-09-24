@@ -2,17 +2,17 @@ RAG EVALUATION REPORT
 ============================================================
 
 Retriever: retriever_bm25
-Timestamp: 20260921_224915
+Timestamp: 20260924_230256
 
 Retrieval Evaluation
 ------------------------------------------------------------
 Questions: 42
 Hit@1: 73.81%
-Hit@3: 88.10%
-Precision@3: 39.68%
-MRR: 0.798
+Hit@3: 83.33%
+Precision@3: 41.27%
+MRR: 0.782
 
-Average Retrieval Latency: 0.37 ms
+Average Retrieval Latency: 0.26 ms
 
 Guardrail Evaluation
 ------------------------------------------------------------
@@ -26,11 +26,11 @@ Expected:
    {'source': 'skills.md', 'section': 'Skills'}
 Retrieved:
    1. {'source': 'experience.md', 'section': 'Web Development Internship — CNSS'}
-   2. {'source': 'experience.md', 'section': 'Full-Stack Development Internship — ITINFODEV'}
-   3. {'source': 'skills.md', 'section': 'Skills'}
-Hit@3: True
-Precision@3: 0.33
-RR: 0.333
+   2. {'source': 'experience.md', 'section': 'Backend AI Internship — FlyRank'}
+   3. {'source': 'experience.md', 'section': 'Full-Stack Development Internship — ITINFODEV'}
+Hit@3: False
+Precision@3: 0.00
+RR: 0.000
 
 Question: What machine learning libraries does she use?
 Expected:
@@ -113,10 +113,10 @@ RR: 0.000
 
 Question: What project did she complete as part of her FlyRank internship?
 Expected:
-   {'source': 'experience.md', 'section': 'AI Engineering Internship — FlyRank'}
+   {'source': 'experience.md', 'section': 'Backend AI Internship — FlyRank'}
 Retrieved:
    1. {'source': 'about.md', 'section': 'Working Style'}
-   2. {'source': 'experience.md', 'section': 'AI Engineering Internship — FlyRank'}
+   2. {'source': 'experience.md', 'section': 'Backend AI Internship — FlyRank'}
    3. {'source': 'projects.md', 'section': 'CERN Dimuon Event Analysis — Personal Project'}
 Hit@3: True
 Precision@3: 0.33
@@ -128,10 +128,10 @@ Expected:
 Retrieved:
    1. {'source': 'experience.md', 'section': 'Web Development Internship — CNSS'}
    2. {'source': 'experience.md', 'section': 'Full-Stack Development Internship — ITINFODEV'}
-   3. {'source': 'projects.md', 'section': 'AskFatima — Personal RAG Project (ongoing)'}
-Hit@3: True
-Precision@3: 0.33
-RR: 0.333
+   3. {'source': 'experience.md', 'section': 'Backend AI Internship — FlyRank'}
+Hit@3: False
+Precision@3: 0.00
+RR: 0.000
 
 Question: What experience does she have with containerized applications?
 Expected:
@@ -140,7 +140,7 @@ Expected:
 Retrieved:
    1. {'source': 'experience.md', 'section': 'Web Development Internship — CNSS'}
    2. {'source': 'about.md', 'section': 'Professional Profile'}
-   3. {'source': 'experience.md', 'section': 'AI Engineering Internship — FlyRank'}
+   3. {'source': 'about.md', 'section': 'Career Direction'}
 Hit@3: False
 Precision@3: 0.00
 RR: 0.000

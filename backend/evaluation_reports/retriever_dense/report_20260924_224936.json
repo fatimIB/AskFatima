@@ -1,16 +1,47 @@
 {
-    "retriever": "query_rewriting",
-    "timestamp": "20260921_224720",
+    "retriever": "retriever_dense",
+    "timestamp": "20260924_224936",
     "retrieval": {
         "questions": 42,
-        "hit_at_1": 0.5714285714285714,
-        "hit_at_3": 0.7857142857142857,
-        "precision_at_3": 0.3650793650793653,
-        "mrr": 0.6706349206349206,
-        "average_latency_seconds": 1.127960340473302,
-        "hit_at_1_count": 24,
-        "hit_at_3_count": 33,
+        "hit_at_1": 0.5476190476190477,
+        "hit_at_3": 0.7619047619047619,
+        "precision_at_3": 0.3492063492063494,
+        "mrr": 0.6468253968253967,
+        "average_latency_seconds": 0.01741645475461458,
+        "hit_at_1_count": 23,
+        "hit_at_3_count": 32,
         "failures": [
+            {
+                "question": "Does Fatima have experience with Flask?",
+                "expected": [
+                    {
+                        "source": "skills.md",
+                        "section": "Skills"
+                    },
+                    {
+                        "source": "projects.md",
+                        "section": "Distributed Café Management System — University Project"
+                    }
+                ],
+                "retrieved": [
+                    {
+                        "source": "about.md",
+                        "section": "What She Is Looking For"
+                    },
+                    {
+                        "source": "education.md",
+                        "section": "Master's Degree in Data Analytics & Artificial Intelligence (ADIA)"
+                    },
+                    {
+                        "source": "about.md",
+                        "section": "Professional Profile"
+                    }
+                ],
+                "found_in_top3": false,
+                "hit3": false,
+                "precision3": 0.0,
+                "reciprocal_rank": 0.0
+            },
             {
                 "question": "What backend frameworks does Fatima know?",
                 "expected": [
@@ -132,7 +163,7 @@
                 "expected": [
                     {
                         "source": "experience.md",
-                        "section": "AI Engineering Internship — FlyRank"
+                        "section": "Backend AI Internship — FlyRank"
                     }
                 ],
                 "retrieved": [
@@ -191,6 +222,10 @@
                     {
                         "source": "skills.md",
                         "section": "Skills"
+                    },
+                    {
+                        "source": "experience.md",
+                        "section": "Backend AI Internship — FlyRank"
                     },
                     {
                         "source": "experience.md",
@@ -310,7 +345,7 @@
                 "expected": [
                     {
                         "source": "experience.md",
-                        "section": "AI Engineering Internship — FlyRank"
+                        "section": "Backend AI Internship — FlyRank"
                     }
                 ],
                 "retrieved": [
@@ -337,7 +372,7 @@
                 "expected": [
                     {
                         "source": "experience.md",
-                        "section": "AI Engineering Internship — FlyRank"
+                        "section": "Backend AI Internship — FlyRank"
                     }
                 ],
                 "retrieved": [
@@ -364,7 +399,7 @@
                 "expected": [
                     {
                         "source": "experience.md",
-                        "section": "AI Engineering Internship — FlyRank"
+                        "section": "Backend AI Internship — FlyRank"
                     }
                 ],
                 "retrieved": [

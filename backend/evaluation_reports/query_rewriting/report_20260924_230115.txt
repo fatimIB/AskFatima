@@ -1,18 +1,18 @@
 RAG EVALUATION REPORT
 ============================================================
 
-Retriever: retriever_dense
-Timestamp: 20260921_224429
+Retriever: query_rewriting
+Timestamp: 20260924_230115
 
 Retrieval Evaluation
 ------------------------------------------------------------
 Questions: 42
-Hit@1: 54.76%
-Hit@3: 76.19%
-Precision@3: 34.92%
-MRR: 0.647
+Hit@1: 57.14%
+Hit@3: 78.57%
+Precision@3: 36.51%
+MRR: 0.671
 
-Average Retrieval Latency: 41.24 ms
+Average Retrieval Latency: 1104.96 ms
 
 Guardrail Evaluation
 ------------------------------------------------------------
@@ -20,18 +20,6 @@ Correct Refusals: 5/5
 
 Retrieval Failures
 ------------------------------------------------------------
-
-Question: Does Fatima have experience with Flask?
-Expected:
-   {'source': 'skills.md', 'section': 'Skills'}
-   {'source': 'projects.md', 'section': 'Distributed Café Management System — University Project'}
-Retrieved:
-   1. {'source': 'about.md', 'section': 'What She Is Looking For'}
-   2. {'source': 'education.md', 'section': "Master's Degree in Data Analytics & Artificial Intelligence (ADIA)"}
-   3. {'source': 'about.md', 'section': 'Professional Profile'}
-Hit@3: False
-Precision@3: 0.00
-RR: 0.000
 
 Question: What backend frameworks does Fatima know?
 Expected:
@@ -81,7 +69,7 @@ RR: 0.500
 
 Question: What did Fatima work on during her FlyRank internship?
 Expected:
-   {'source': 'experience.md', 'section': 'AI Engineering Internship — FlyRank'}
+   {'source': 'experience.md', 'section': 'Backend AI Internship — FlyRank'}
 Retrieved:
    1. {'source': 'about.md', 'section': 'What She Is Looking For'}
    2. {'source': 'about.md', 'section': 'Professional Profile'}
@@ -105,6 +93,7 @@ RR: 0.500
 Question: What programming tools does she use for building web backends?
 Expected:
    {'source': 'skills.md', 'section': 'Skills'}
+   {'source': 'experience.md', 'section': 'Backend AI Internship — FlyRank'}
    {'source': 'experience.md', 'section': 'Full-Stack Development Internship — ITINFODEV'}
 Retrieved:
    1. {'source': 'experience.md', 'section': 'Web Development Internship — CNSS'}
@@ -151,7 +140,7 @@ RR: 0.500
 
 Question: What did she build during her FlyRank internship?
 Expected:
-   {'source': 'experience.md', 'section': 'AI Engineering Internship — FlyRank'}
+   {'source': 'experience.md', 'section': 'Backend AI Internship — FlyRank'}
 Retrieved:
    1. {'source': 'experience.md', 'section': 'Full-Stack Development Internship — ITINFODEV'}
    2. {'source': 'about.md', 'section': 'What She Is Looking For'}
@@ -162,7 +151,7 @@ RR: 0.000
 
 Question: What project did she complete as part of her FlyRank internship?
 Expected:
-   {'source': 'experience.md', 'section': 'AI Engineering Internship — FlyRank'}
+   {'source': 'experience.md', 'section': 'Backend AI Internship — FlyRank'}
 Retrieved:
    1. {'source': 'about.md', 'section': 'What She Is Looking For'}
    2. {'source': 'experience.md', 'section': 'Full-Stack Development Internship — ITINFODEV'}
@@ -173,7 +162,7 @@ RR: 0.000
 
 Question: What kind of AI project did she build during her FlyRank internship?
 Expected:
-   {'source': 'experience.md', 'section': 'AI Engineering Internship — FlyRank'}
+   {'source': 'experience.md', 'section': 'Backend AI Internship — FlyRank'}
 Retrieved:
    1. {'source': 'about.md', 'section': 'Career Direction'}
    2. {'source': 'about.md', 'section': 'What She Is Looking For'}

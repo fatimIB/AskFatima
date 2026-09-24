@@ -1,22 +1,26 @@
 {
-    "retriever": "retriever_bm25",
-    "timestamp": "20260921_224915",
+    "retriever": "retriever_hybrid_cross_encoder",
+    "timestamp": "20260924_230930",
     "retrieval": {
         "questions": 42,
-        "hit_at_1": 0.7380952380952381,
-        "hit_at_3": 0.8809523809523809,
-        "precision_at_3": 0.39682539682539686,
-        "mrr": 0.7976190476190477,
-        "average_latency_seconds": 0.00037033095334966976,
-        "hit_at_1_count": 31,
-        "hit_at_3_count": 37,
+        "hit_at_1": 0.7619047619047619,
+        "hit_at_3": 0.9285714285714286,
+        "precision_at_3": 0.42857142857142866,
+        "mrr": 0.8333333333333334,
+        "average_latency_seconds": 0.8139087642942157,
+        "hit_at_1_count": 32,
+        "hit_at_3_count": 39,
         "failures": [
             {
-                "question": "What backend frameworks does Fatima know?",
+                "question": "Does Fatima have experience with Flask?",
                 "expected": [
                     {
                         "source": "skills.md",
                         "section": "Skills"
+                    },
+                    {
+                        "source": "projects.md",
+                        "section": "Distributed Café Management System — University Project"
                     }
                 ],
                 "retrieved": [
@@ -52,8 +56,8 @@
                         "section": "CERN Dimuon Event Analysis — Personal Project"
                     },
                     {
-                        "source": "education.md",
-                        "section": "Licence degree in Data Analytics & Artificial Intelligence (ADIA)"
+                        "source": "projects.md",
+                        "section": "Monte Carlo Simulation & Model Validation — Personal Project"
                     },
                     {
                         "source": "skills.md",
@@ -66,39 +70,66 @@
                 "reciprocal_rank": 0.3333333333333333
             },
             {
-                "question": "Where did Fatima study?",
+                "question": "What programming tools does she use for building web backends?",
                 "expected": [
                     {
-                        "source": "education.md",
-                        "section": "Master's Degree in Data Analytics & Artificial Intelligence (ADIA)"
+                        "source": "skills.md",
+                        "section": "Skills"
                     },
                     {
-                        "source": "education.md",
-                        "section": "Licence degree in Data Analytics & Artificial Intelligence (ADIA)"
+                        "source": "experience.md",
+                        "section": "Backend AI Internship — FlyRank"
                     },
                     {
-                        "source": "education.md",
-                        "section": "DUT (Diplôme Universitaire de Technologie) in Computer Engineering"
+                        "source": "experience.md",
+                        "section": "Full-Stack Development Internship — ITINFODEV"
                     }
                 ],
                 "retrieved": [
                     {
-                        "source": "about.md",
-                        "section": "Professional Profile"
+                        "source": "experience.md",
+                        "section": "Web Development Internship — CNSS"
                     },
                     {
-                        "source": "about.md",
-                        "section": "Career Direction"
+                        "source": "experience.md",
+                        "section": "Backend AI Internship — FlyRank"
                     },
                     {
-                        "source": "about.md",
-                        "section": "Working Style"
+                        "source": "experience.md",
+                        "section": "Full-Stack Development Internship — ITINFODEV"
                     }
                 ],
-                "found_in_top3": false,
-                "hit3": false,
-                "precision3": 0.0,
-                "reciprocal_rank": 0.0
+                "found_in_top3": true,
+                "hit3": true,
+                "precision3": 0.6666666666666666,
+                "reciprocal_rank": 0.5
+            },
+            {
+                "question": "What tools does she use when working on machine learning projects?",
+                "expected": [
+                    {
+                        "source": "skills.md",
+                        "section": "Skills"
+                    }
+                ],
+                "retrieved": [
+                    {
+                        "source": "projects.md",
+                        "section": "CERN Dimuon Event Analysis — Personal Project"
+                    },
+                    {
+                        "source": "skills.md",
+                        "section": "Skills"
+                    },
+                    {
+                        "source": "projects.md",
+                        "section": "Monte Carlo Simulation & Model Validation — Personal Project"
+                    }
+                ],
+                "found_in_top3": true,
+                "hit3": true,
+                "precision3": 0.3333333333333333,
+                "reciprocal_rank": 0.5
             },
             {
                 "question": "Which libraries has she used for training machine learning models?",
@@ -111,48 +142,48 @@
                 "retrieved": [
                     {
                         "source": "projects.md",
-                        "section": "Monte Carlo Simulation & Model Validation — Personal Project"
-                    },
-                    {
-                        "source": "projects.md",
                         "section": "CERN Dimuon Event Analysis — Personal Project"
                     },
                     {
+                        "source": "projects.md",
+                        "section": "Monte Carlo Simulation & Model Validation — Personal Project"
+                    },
+                    {
+                        "source": "skills.md",
+                        "section": "Skills"
+                    }
+                ],
+                "found_in_top3": true,
+                "hit3": true,
+                "precision3": 0.3333333333333333,
+                "reciprocal_rank": 0.3333333333333333
+            },
+            {
+                "question": "What is she studying at the moment?",
+                "expected": [
+                    {
                         "source": "education.md",
-                        "section": "Licence degree in Data Analytics & Artificial Intelligence (ADIA)"
+                        "section": "Master's Degree in Data Analytics & Artificial Intelligence (ADIA)"
+                    }
+                ],
+                "retrieved": [
+                    {
+                        "source": "about.md",
+                        "section": "What She Is Looking For"
+                    },
+                    {
+                        "source": "about.md",
+                        "section": "Professional Profile"
+                    },
+                    {
+                        "source": "about.md",
+                        "section": "Career Direction"
                     }
                 ],
                 "found_in_top3": false,
                 "hit3": false,
                 "precision3": 0.0,
                 "reciprocal_rank": 0.0
-            },
-            {
-                "question": "What tools does she use for artificial intelligence and machine learning?",
-                "expected": [
-                    {
-                        "source": "skills.md",
-                        "section": "Skills"
-                    }
-                ],
-                "retrieved": [
-                    {
-                        "source": "education.md",
-                        "section": "Licence degree in Data Analytics & Artificial Intelligence (ADIA)"
-                    },
-                    {
-                        "source": "skills.md",
-                        "section": "Skills"
-                    },
-                    {
-                        "source": "education.md",
-                        "section": "Master's Degree in Data Analytics & Artificial Intelligence (ADIA)"
-                    }
-                ],
-                "found_in_top3": true,
-                "hit3": true,
-                "precision3": 0.3333333333333333,
-                "reciprocal_rank": 0.5
             },
             {
                 "question": "What academic program is she enrolled in right now?",
@@ -165,21 +196,21 @@
                 "retrieved": [
                     {
                         "source": "about.md",
-                        "section": "Professional Profile"
+                        "section": "What She Is Looking For"
                     },
                     {
-                        "source": "about.md",
-                        "section": "Career Direction"
+                        "source": "education.md",
+                        "section": "Master's Degree in Data Analytics & Artificial Intelligence (ADIA)"
                     },
                     {
-                        "source": "about.md",
-                        "section": "Working Style"
+                        "source": "education.md",
+                        "section": "Licence degree in Data Analytics & Artificial Intelligence (ADIA)"
                     }
                 ],
-                "found_in_top3": false,
-                "hit3": false,
-                "precision3": 0.0,
-                "reciprocal_rank": 0.0
+                "found_in_top3": true,
+                "hit3": true,
+                "precision3": 0.3333333333333333,
+                "reciprocal_rank": 0.5
             },
             {
                 "question": "What kind of role does she want to pursue after her studies?",
@@ -192,102 +223,21 @@
                 "retrieved": [
                     {
                         "source": "about.md",
-                        "section": "Professional Profile"
-                    },
-                    {
-                        "source": "about.md",
-                        "section": "Career Direction"
-                    },
-                    {
-                        "source": "about.md",
-                        "section": "Working Style"
-                    }
-                ],
-                "found_in_top3": true,
-                "hit3": true,
-                "precision3": 0.3333333333333333,
-                "reciprocal_rank": 0.5
-            },
-            {
-                "question": "What type of professional opportunity is she currently seeking?",
-                "expected": [
-                    {
-                        "source": "about.md",
                         "section": "What She Is Looking For"
-                    }
-                ],
-                "retrieved": [
-                    {
-                        "source": "about.md",
-                        "section": "Professional Profile"
-                    },
-                    {
-                        "source": "skills.md",
-                        "section": "Skills"
                     },
                     {
                         "source": "about.md",
                         "section": "Career Direction"
-                    }
-                ],
-                "found_in_top3": false,
-                "hit3": false,
-                "precision3": 0.0,
-                "reciprocal_rank": 0.0
-            },
-            {
-                "question": "What project did she complete as part of her FlyRank internship?",
-                "expected": [
-                    {
-                        "source": "experience.md",
-                        "section": "AI Engineering Internship — FlyRank"
-                    }
-                ],
-                "retrieved": [
+                    },
                     {
                         "source": "about.md",
-                        "section": "Working Style"
-                    },
-                    {
-                        "source": "experience.md",
-                        "section": "AI Engineering Internship — FlyRank"
-                    },
-                    {
-                        "source": "projects.md",
-                        "section": "CERN Dimuon Event Analysis — Personal Project"
+                        "section": "Professional Profile"
                     }
                 ],
                 "found_in_top3": true,
                 "hit3": true,
                 "precision3": 0.3333333333333333,
                 "reciprocal_rank": 0.5
-            },
-            {
-                "question": "What is she currently developing?",
-                "expected": [
-                    {
-                        "source": "projects.md",
-                        "section": "AskFatima — Personal RAG Project (ongoing)"
-                    }
-                ],
-                "retrieved": [
-                    {
-                        "source": "experience.md",
-                        "section": "Web Development Internship — CNSS"
-                    },
-                    {
-                        "source": "experience.md",
-                        "section": "Full-Stack Development Internship — ITINFODEV"
-                    },
-                    {
-                        "source": "projects.md",
-                        "section": "AskFatima — Personal RAG Project (ongoing)"
-                    }
-                ],
-                "found_in_top3": true,
-                "hit3": true,
-                "precision3": 0.3333333333333333,
-                "reciprocal_rank": 0.3333333333333333
             },
             {
                 "question": "What experience does she have with containerized applications?",
@@ -307,12 +257,43 @@
                         "section": "Web Development Internship — CNSS"
                     },
                     {
-                        "source": "about.md",
-                        "section": "Professional Profile"
+                        "source": "experience.md",
+                        "section": "Full-Stack Development Internship — ITINFODEV"
                     },
                     {
                         "source": "experience.md",
-                        "section": "AI Engineering Internship — FlyRank"
+                        "section": "Backend AI Internship — FlyRank"
+                    }
+                ],
+                "found_in_top3": false,
+                "hit3": false,
+                "precision3": 0.0,
+                "reciprocal_rank": 0.0
+            },
+            {
+                "question": "What experience does she have with Docker?",
+                "expected": [
+                    {
+                        "source": "skills.md",
+                        "section": "Skills"
+                    },
+                    {
+                        "source": "projects.md",
+                        "section": "Distributed Café Management System — University Project"
+                    }
+                ],
+                "retrieved": [
+                    {
+                        "source": "experience.md",
+                        "section": "Web Development Internship — CNSS"
+                    },
+                    {
+                        "source": "experience.md",
+                        "section": "Full-Stack Development Internship — ITINFODEV"
+                    },
+                    {
+                        "source": "experience.md",
+                        "section": "Backend AI Internship — FlyRank"
                     }
                 ],
                 "found_in_top3": false,

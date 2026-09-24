@@ -114,7 +114,7 @@
         "expected": [
             {
                 "source": "experience.md",
-                "section": "AI Engineering Internship — FlyRank"
+                "section": "Backend AI Internship — FlyRank"
             }
         ],
         "should_refuse": false
@@ -173,6 +173,10 @@
                 "section": "Skills"
             },
             {
+                "source": "experience.md", 
+                "section": "Backend AI Internship — FlyRank"
+            },
+            {
                 "source": "experience.md",
                 "section": "Full-Stack Development Internship — ITINFODEV"
             },
@@ -193,6 +197,10 @@
             {
                 "source": "skills.md",
                 "section": "Skills"
+            },
+            {
+                "source": "experience.md", 
+                "section": "Backend AI Internship — FlyRank"
             },
             {
                 "source": "experience.md",
@@ -236,6 +244,10 @@
             },
             {
                 "source": "experience.md",
+                "section": "Backend AI Internship — FlyRank"
+            },
+            {
+                "source": "experience.md",
                 "section": "Full-Stack Development Internship — ITINFODEV"
             },
             {
@@ -273,6 +285,10 @@
             {
                 "source": "skills.md",
                 "section": "Skills"
+            },
+            {
+                "source": "experience.md", 
+                "section": "Backend AI Internship — FlyRank"
             },
             {
                 "source": "experience.md",
@@ -394,7 +410,7 @@
         "expected": [
             {
                 "source": "experience.md",
-                "section": "AI Engineering Internship — FlyRank"
+                "section": "Backend AI Internship — FlyRank"
             }
         ],
         "should_refuse": false
@@ -404,7 +420,7 @@
         "expected": [
             {
                 "source": "experience.md",
-                "section": "AI Engineering Internship — FlyRank"
+                "section": "Backend AI Internship — FlyRank"
             }
         ],
         "should_refuse": false
@@ -414,7 +430,7 @@
         "expected": [
             {
                 "source": "experience.md",
-                "section": "AI Engineering Internship — FlyRank"
+                "section": "Backend AI Internship — FlyRank"
             }
         ],
         "should_refuse": false

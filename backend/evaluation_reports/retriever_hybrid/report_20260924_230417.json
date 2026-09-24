@@ -1,15 +1,15 @@
 {
     "retriever": "retriever_hybrid",
-    "timestamp": "20260921_225055",
+    "timestamp": "20260924_230417",
     "retrieval": {
         "questions": 42,
-        "hit_at_1": 0.6666666666666666,
-        "hit_at_3": 0.8809523809523809,
-        "precision_at_3": 0.4047619047619048,
-        "mrr": 0.7619047619047619,
-        "average_latency_seconds": 0.0483385047603709,
-        "hit_at_1_count": 28,
-        "hit_at_3_count": 37,
+        "hit_at_1": 0.6190476190476191,
+        "hit_at_3": 0.8571428571428571,
+        "precision_at_3": 0.40476190476190477,
+        "mrr": 0.7222222222222221,
+        "average_latency_seconds": 0.0342169928508589,
+        "hit_at_1_count": 26,
+        "hit_at_3_count": 36,
         "failures": [
             {
                 "question": "Does Fatima have experience with Flask?",
@@ -70,6 +70,33 @@
                 "reciprocal_rank": 0.0
             },
             {
+                "question": "What machine learning libraries does she use?",
+                "expected": [
+                    {
+                        "source": "skills.md",
+                        "section": "Skills"
+                    }
+                ],
+                "retrieved": [
+                    {
+                        "source": "projects.md",
+                        "section": "CERN Dimuon Event Analysis — Personal Project"
+                    },
+                    {
+                        "source": "skills.md",
+                        "section": "Skills"
+                    },
+                    {
+                        "source": "projects.md",
+                        "section": "Monte Carlo Simulation & Model Validation — Personal Project"
+                    }
+                ],
+                "found_in_top3": true,
+                "hit3": true,
+                "precision3": 0.3333333333333333,
+                "reciprocal_rank": 0.5
+            },
+            {
                 "question": "Where did Fatima study?",
                 "expected": [
                     {
@@ -109,7 +136,7 @@
                 "expected": [
                     {
                         "source": "experience.md",
-                        "section": "AI Engineering Internship — FlyRank"
+                        "section": "Backend AI Internship — FlyRank"
                     }
                 ],
                 "retrieved": [
@@ -137,6 +164,10 @@
                     {
                         "source": "skills.md",
                         "section": "Skills"
+                    },
+                    {
+                        "source": "experience.md",
+                        "section": "Backend AI Internship — FlyRank"
                     },
                     {
                         "source": "experience.md",
@@ -275,7 +306,7 @@
                 "expected": [
                     {
                         "source": "experience.md",
-                        "section": "AI Engineering Internship — FlyRank"
+                        "section": "Backend AI Internship — FlyRank"
                     }
                 ],
                 "retrieved": [
@@ -289,7 +320,34 @@
                     },
                     {
                         "source": "experience.md",
-                        "section": "AI Engineering Internship — FlyRank"
+                        "section": "Web Development Internship — CNSS"
+                    }
+                ],
+                "found_in_top3": false,
+                "hit3": false,
+                "precision3": 0.0,
+                "reciprocal_rank": 0.0
+            },
+            {
+                "question": "What project did she complete as part of her FlyRank internship?",
+                "expected": [
+                    {
+                        "source": "experience.md",
+                        "section": "Backend AI Internship — FlyRank"
+                    }
+                ],
+                "retrieved": [
+                    {
+                        "source": "about.md",
+                        "section": "What She Is Looking For"
+                    },
+                    {
+                        "source": "experience.md",
+                        "section": "Full-Stack Development Internship — ITINFODEV"
+                    },
+                    {
+                        "source": "experience.md",
+                        "section": "Backend AI Internship — FlyRank"
                     }
                 ],
                 "found_in_top3": true,
@@ -298,38 +356,11 @@
                 "reciprocal_rank": 0.3333333333333333
             },
             {
-                "question": "What project did she complete as part of her FlyRank internship?",
-                "expected": [
-                    {
-                        "source": "experience.md",
-                        "section": "AI Engineering Internship — FlyRank"
-                    }
-                ],
-                "retrieved": [
-                    {
-                        "source": "about.md",
-                        "section": "What She Is Looking For"
-                    },
-                    {
-                        "source": "experience.md",
-                        "section": "AI Engineering Internship — FlyRank"
-                    },
-                    {
-                        "source": "experience.md",
-                        "section": "Full-Stack Development Internship — ITINFODEV"
-                    }
-                ],
-                "found_in_top3": true,
-                "hit3": true,
-                "precision3": 0.3333333333333333,
-                "reciprocal_rank": 0.5
-            },
-            {
                 "question": "What kind of AI project did she build during her FlyRank internship?",
                 "expected": [
                     {
                         "source": "experience.md",
-                        "section": "AI Engineering Internship — FlyRank"
+                        "section": "Backend AI Internship — FlyRank"
                     }
                 ],
                 "retrieved": [
@@ -343,7 +374,7 @@
                     },
                     {
                         "source": "experience.md",
-                        "section": "AI Engineering Internship — FlyRank"
+                        "section": "Backend AI Internship — FlyRank"
                     }
                 ],
                 "found_in_top3": true,
@@ -408,6 +439,37 @@
                 "hit3": false,
                 "precision3": 0.0,
                 "reciprocal_rank": 0.0
+            },
+            {
+                "question": "What experience does she have with Docker?",
+                "expected": [
+                    {
+                        "source": "skills.md",
+                        "section": "Skills"
+                    },
+                    {
+                        "source": "projects.md",
+                        "section": "Distributed Café Management System — University Project"
+                    }
+                ],
+                "retrieved": [
+                    {
+                        "source": "experience.md",
+                        "section": "Web Development Internship — CNSS"
+                    },
+                    {
+                        "source": "experience.md",
+                        "section": "Full-Stack Development Internship — ITINFODEV"
+                    },
+                    {
+                        "source": "projects.md",
+                        "section": "Distributed Café Management System — University Project"
+                    }
+                ],
+                "found_in_top3": true,
+                "hit3": true,
+                "precision3": 0.3333333333333333,
+                "reciprocal_rank": 0.3333333333333333
             }
         ]
     },

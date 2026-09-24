@@ -31,42 +31,42 @@ I wanted to build a system that could:
                          └──────────┬──────────┘
                                     │
                                     ▼
-                    ┌──────────────────────────────┐
-                    │    Conversation Handling     │
-                    │                              │
-                    │ Recent conversation window   │
-                    │            ↓                 │
-                    │ Groq query condensation      │
-                    └──────────────┬───────────────┘
-                                   │
-                                   ▼
+                   ┌──────────────────────────────┐
+                   │    Conversation Handling     │
+                   │                              │
+                   │ Recent conversation window   │
+                   │            ↓                 │
+                   │ Groq question condensation  │
+                   └──────────────┬───────────────┘
+                                  │
+                                  ▼
                          Standalone question
-                                   │
-                                   ▼
-                    ┌──────────────────────────────┐
-                    │         Retrieval            │
-                    │                              │
-                    │ Dense embeddings              │
-                    │ BM25                         │
-                    │ Hybrid RRF                    │
-                    │ Cross-encoder reranking       │
-                    └──────────────┬───────────────┘
-                                   │
-                                   ▼
+                                  │
+                                  ▼
+                   ┌──────────────────────────────┐
+                   │          Retrieval           │
+                   │                              │
+                   │ Dense embeddings             │
+                   │ BM25                         │
+                   │ Hybrid RRF                   │
+                   │ Cross-encoder reranking      │
+                   └──────────────┬───────────────┘
+                                  │
+                                  ▼
                          Retrieved document chunks
-                                   │
-                                   ▼
-              ┌────────────────────────────────────────┐
-              │             Generation                 │
-              │                                        │
-              │ Original question                      │
-              │ Recent conversation history             │
-              │ Retrieved knowledge context             │
-              │                ↓                       │
-              │              Gemini                    │
-              └────────────────────┬───────────────────┘
-                                   │
-                                   ▼
+                                  │
+                                  ▼
+             ┌────────────────────────────────────────┐
+             │              Generation                │
+             │                                        │
+             │ Original question                      │
+             │ Recent conversation history             │
+             │ Retrieved knowledge context             │
+             │                ↓                       │
+             │              Gemini                    │
+             └────────────────────┬───────────────────┘
+                                  │
+                                  ▼
                          Answer + source metadata
 ```
 
@@ -82,6 +82,7 @@ For example:
 
 ```text
 User: Tell me about the CERN project.
+
 AskFatima: ...
 
 User: What model did she use?
@@ -103,15 +104,21 @@ The application uses a bounded conversation window rather than sending an unlimi
 
 Knowledge context is different.
 
-It consists of the document chunks retrieved from Fatima's actual files:
+It consists of the document chunks retrieved from my actual files:
 
 ```text
 CV
+
 Professional profile
+
 Education
+
 Experience
+
 Projects
+
 Skills
+
 ...
 ```
 
@@ -123,7 +130,7 @@ In other words:
 
 ---
 
-## Conversation-aware RAG
+# Conversation-aware RAG
 
 AskFatima does not simply concatenate the entire conversation into every retrieval request.
 
@@ -154,7 +161,7 @@ Original question   Recent conversation
        │               │
        └───────┬───────┘
                ▼
-            Gemini
+             Gemini
                │
                ▼
              Answer
@@ -231,27 +238,34 @@ I also included **5 refusal/guardrail questions** to check that the system did n
 
 | Strategy                   |      Hit@1 |      Hit@3 | Precision@3 |       MRR | Retrieval latency |
 | -------------------------- | ---------: | ---------: | ----------: | --------: | ----------------: |
-| Dense                      |     54.76% |     76.19% |      34.92% |     0.647 |             41 ms |
-| Query rewriting            |     57.14% |     78.57% |      36.51% |     0.671 |           1128 ms |
-| BM25                       |     73.81% |     88.10% |      39.68% |     0.798 |           0.37 ms |
-| Cross-encoder              |     76.19% |     92.86% |      41.27% |     0.833 |           2143 ms |
-| Hybrid RRF                 |     66.67% |     88.10% |      40.48% |     0.762 |             48 ms |
-| **Hybrid + cross-encoder** | **76.19%** | **92.86%** |  **41.27%** | **0.833** |       **1122 ms** |
+| Dense                      |     54.76% |     76.19% |      34.92% |     0.647 |          17.42 ms |
+| Query rewriting            |     57.14% |     78.57% |      36.51% |     0.671 |        1104.96 ms |
+| BM25                       |     73.81% |     83.33% |      41.27% |     0.782 |           0.26 ms |
+| Hybrid RRF                 |     61.90% |     85.71% |      40.48% |     0.722 |          34.22 ms |
+| Cross-encoder              | **76.19%** | **92.86%** |  **42.86%** | **0.833** |        1528.51 ms |
+| **Hybrid + cross-encoder** | **76.19%** | **92.86%** |  **42.86%** | **0.833** |     **813.91 ms** |
 
 The evaluation set is intentionally small and custom, so these numbers should be interpreted as **comparisons within this project**, not as a general benchmark of retrieval systems.
 
 ### Why hybrid + cross-encoder?
 
-The cross-encoder alone and hybrid + cross-encoder produced the **same measured retrieval metrics** on this evaluation set.
-
-However:
+The standalone cross-encoder and hybrid + cross-encoder produced the **same measured retrieval quality** across all four retrieval metrics on this evaluation set:
 
 ```text
-Cross-encoder:          ~2143 ms
-Hybrid + cross-encoder: ~1122 ms
+Hit@1:       76.19%
+Hit@3:       92.86%
+Precision@3: 42.86%
+MRR:         0.833
 ```
 
-The hybrid approach therefore achieved the same measured retrieval quality in this experiment while reducing retrieval latency by roughly half.
+However, their measured retrieval latency differed substantially:
+
+```text
+Cross-encoder:             1528.51 ms
+Hybrid + cross-encoder:     813.91 ms
+```
+
+In this experiment, the hybrid + cross-encoder configuration reduced measured retrieval latency by approximately **47%** while maintaining the same measured retrieval quality.
 
 That became the current configured retrieval strategy.
 
@@ -285,17 +299,25 @@ However, the improvement was small:
 
 ```text
 Dense baseline
-Hit@1: 54.76%
-MRR:   0.647
-Latency: ~41 ms
 
-With query rewriting
-Hit@1: 57.14%
-MRR:   0.671
-Latency: ~1128 ms
+Hit@1:   54.76%
+Hit@3:   76.19%
+MRR:     0.647
+Latency: 17.42 ms
 ```
 
-The latency increase was substantial relative to the small retrieval improvement.
+versus:
+
+```text
+With query rewriting
+
+Hit@1:   57.14%
+Hit@3:   78.57%
+MRR:     0.671
+Latency: 1104.96 ms
+```
+
+The retrieval improvement was only a few percentage points, while the additional LLM call increased latency substantially.
 
 I therefore **removed this retrieval rewriting step**.
 
@@ -311,7 +333,9 @@ This is separate from the current **conversation-aware condensation** step.
 
 ```text
 "What model did she use?"
+
 "What about the latest one?"
+
 "Which one uses RAG?"
 ```
 
@@ -323,9 +347,13 @@ After retrieval, Gemini receives three important pieces of information:
 
 ```text
 Original user question
+
         +
+
 Recent conversation history
+
         +
+
 Retrieved document context
 ```
 
@@ -404,18 +432,22 @@ The system is therefore designed to **fail safely rather than invent an answer**
 
 The project was developed iteratively by testing hypotheses rather than adding components automatically.
 
-Some examples:
+| Question                                                  | Experiment                                   | Decision                                                         |
+| --------------------------------------------------------- | -------------------------------------------- | ---------------------------------------------------------------- |
+| Is dense retrieval enough?                                | Compared against BM25, hybrid, and reranking | Dense retrieval alone was not sufficient on the evaluation set   |
+| Are natural-language queries too verbose?                 | Tested LLM query rewriting                   | Removed due to limited retrieval gain and high latency           |
+| Can lexical and semantic retrieval complement each other? | Tested BM25 + dense RRF                      | Kept as candidate retrieval                                      |
+| Can reranking improve candidate ordering?                 | Tested cross-encoder                         | Produced the highest measured retrieval quality on the benchmark |
+| Does hybrid + reranking justify its latency?              | Compared against cross-encoder alone         | Same measured quality with lower measured latency                |
+| Can follow-up questions be understood?                    | Added conversation-aware condensation        | Kept                                                             |
+| Can conversation history grow indefinitely?               | Bounded recent history                       | Kept bounded windows                                             |
+| What should happen when evidence is missing?              | Added refusal behavior                       | Prefer refusal over unsupported generation                       |
 
-| Question                                                  | Experiment                             | Decision                                              |
-| --------------------------------------------------------- | -------------------------------------- | ----------------------------------------------------- |
-| Is dense retrieval enough?                                | Compared against BM25/hybrid/reranking | No                                                    |
-| Are natural-language queries too verbose?                 | Tested LLM query rewriting             | Removed due to latency/limited gain                   |
-| Can lexical and semantic retrieval complement each other? | Tested BM25 + dense RRF                | Used as candidate retrieval                           |
-| Can reranking improve candidate ordering?                 | Tested cross-encoder                   | Yes, based on evaluation                              |
-| Does hybrid + reranking justify its latency?              | Compared against cross-encoder alone   | Same measured quality, roughly half retrieval latency |
-| Can follow-up questions be understood?                    | Added conversation-aware condensation  | Kept                                                  |
-| Can conversation history grow indefinitely?               | Bounded recent history                 | Kept bounded windows                                  |
-| What should happen when evidence is missing?              | Added refusal behavior                 | Prefer refusal over hallucination                     |
+The results also showed why individual retrieval components should be evaluated rather than assumed to be complementary.
+
+For example, **BM25 alone performed strongly on this dataset**, likely because the knowledge base contains many exact technical terms, project names, technologies, and proper nouns.
+
+The final configuration was selected based on the measured trade-off between retrieval quality and latency rather than on architectural complexity alone.
 
 ---
 
@@ -436,6 +468,14 @@ Questions unrelated to that scope are redirected rather than treated as general-
 ### Refusal behavior
 
 If the retrieved context does not contain sufficient evidence, the system refuses instead of filling gaps with model knowledge.
+
+The separate guardrail evaluation achieved:
+
+```text
+Correct refusals: 5 / 5
+```
+
+This is a small custom guardrail set intended to validate the implemented refusal behavior, not a general safety benchmark.
 
 ### Source tracing
 
@@ -484,48 +524,9 @@ The API validates incoming questions and applies request-level protections befor
 
 ---
 
-# Running locally
-
-### Backend
-
-Install the Python dependencies:
-
-```bash
-pip install -r backend/requirements.txt
-```
-
-Configure the required environment variables:
-
-```env
-GROQ_API_KEY=...
-GROQ_MODEL=...
-GEMINI_API_KEY=...
-MODEL_NAME=...
-```
-
-Run the API:
-
-```bash
-uvicorn backend.app.main:app --reload
-```
-
-### Frontend
-
-```bash
-cd frontend
-npm install
-npm run dev
-```
-
-For local development, the frontend can point to the FastAPI backend through `VITE_API_URL`.
-
-For a single-container production deployment, the frontend can use the same origin and call `/chat` directly.
-
----
-
 # Docker
 
-AskFatima can also be packaged as a single Docker image.
+AskFatima is packaged as a single Docker image.
 
 The image:
 
@@ -534,17 +535,9 @@ The image:
 3. copies the production frontend build into the backend image;
 4. serves the application through FastAPI/Uvicorn.
 
-Example:
+The local Chroma vector store is generated from the Markdown knowledge base and is intentionally excluded from version control.
 
-```bash
-docker build -t askfatima .
-```
-
-Run:
-
-```bash
-docker run --rm -p 7860:7860 --env-file backend/.env askfatima
-```
+API credentials and other secrets are also excluded from the repository.
 
 ---
 
@@ -578,7 +571,9 @@ Sources + safe refusal behavior
 
 The project is still imperfect. Ambiguous standalone queries can sometimes retrieve the wrong evidence, and conversational understanding depends on having enough relevant recent history.
 
-That is intentional to acknowledge rather than hide: **the system is evaluated, its failure modes are observable, and its engineering decisions are based on measured behavior rather than assuming that adding another LLM call will automatically make the system better.**
+That is intentional to acknowledge rather than hide:
+
+> **The system is evaluated, its failure modes are observable, and its engineering decisions are based on measured behavior rather than assuming that adding another LLM call will automatically make the system better.**
 
 ---
 
@@ -588,7 +583,16 @@ That is intentional to acknowledge rather than hide: **the system is evaluated, 
 
 The core RAG pipeline, evaluation framework, conversational handling, guardrails, source tracing, and Docker packaging are implemented.
 
-Future improvements may include stronger evaluation coverage for conversational queries, better handling of ambiguous references, and additional deployment optimization.
+The current retrieval configuration is **hybrid retrieval + cross-encoder reranking**, based on the measured results of the project's custom evaluation set.
+
+Future improvements may include:
+
+* stronger evaluation coverage for conversational queries;
+* better handling of ambiguous references;
+* additional retrieval evaluation cases;
+* deployment optimization.
+
+---
 
 ## License & Privacy
 

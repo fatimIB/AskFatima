@@ -1,5 +1,7 @@
 # AskFatima
 
+![AskFatima screenshot](assets/askfatima-screenshot.png)
+
 **AskFatima** is a personal Retrieval-Augmented Generation (RAG) application that lets recruiters, collaborators, and visitors ask questions about my **education, experience, internships, projects, technical skills, and career direction**.
 
 The goal was not simply to connect an LLM to my CV.
@@ -13,6 +15,8 @@ I wanted to build a system that could:
 * expose the retrieved sources behind each answer;
 * protect the system against common prompt-injection and off-topic requests;
 * and, most importantly, allow me to **measure and compare engineering decisions instead of adding components blindly**.
+
+[▶Watch the AskFatima demo](https://drive.google.com/file/d/1MyQjdPe6VC_tC6Wb44TS0nLJVPWwSgcQ/view?usp=sharing)
 
 ---
 

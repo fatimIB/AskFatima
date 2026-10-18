@@ -9,5 +9,5 @@ langchain_text_splitters
 chromadb
 sentence-transformers
 rank-bm25
-transformers
+transformers<5
 pydantic

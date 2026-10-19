@@ -1,5 +1,7 @@
 # AskFatima
 
+[![CI/CD](https://github.com/fatimIB/AskFatima/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/fatimIB/AskFatima/actions/workflows/ci.yml)
+
 ![AskFatima screenshot](assets/askfatima-screenshot.png)
 
 **AskFatima** is a personal Retrieval-Augmented Generation (RAG) application that lets recruiters, collaborators, and visitors ask questions about my **education, experience, internships, projects, technical skills, and career direction**.
@@ -481,6 +483,8 @@ Correct refusals: 5 / 5
 
 This is a small custom guardrail set intended to validate the implemented refusal behavior, not a general safety benchmark.
 
+These guardrail cases call the live LLM, so they are run manually before releases and are not part of the automated pipeline.
+
 ### Source tracing
 
 Each answer exposes the retrieved document sources and sections used during retrieval.
@@ -525,23 +529,90 @@ The API validates incoming questions and applies request-level protections befor
 
 * Docker
 * Uvicorn
+* GitHub Actions (CI/CD)
+* GitHub Container Registry
+* Azure Container Apps
+* pytest
 
 ---
 
 # Docker
 
-AskFatima is packaged as a single Docker image.
+AskFatima is packaged as a single Docker image, built in two stages, with these steps:
 
-The image:
+1. a Node stage builds the React frontend;
+2. a Python 3.12 stage installs the backend dependencies, including a pinned CPU-only PyTorch build;
+3. the embedding and cross-encoder models are downloaded during the build and stored in the image;
+4. the Chroma vector index is built during the build from the Markdown knowledge base;
+5. the React build is copied in and the application is served through FastAPI/Uvicorn.
 
-1. builds the React frontend;
-2. installs the Python backend and CPU dependencies;
-3. copies the production frontend build into the backend image;
-4. serves the application through FastAPI/Uvicorn.
+Because the models and the index are created at build time, the container starts without downloading anything.
 
-The local Chroma vector store is generated from the Markdown knowledge base and is intentionally excluded from version control.
+The Chroma index is not stored in version control; it is regenerated on every image build. API credentials and other secrets are excluded from the repository and from the image.
 
-API credentials and other secrets are also excluded from the repository.
+---
+
+# Deployment & CI/CD
+
+AskFatima is deployed on **Azure Container Apps**. Every push to `main` goes through an automated GitHub Actions pipeline that tests the API, builds the Docker image, publishes it, deploys it, and checks that the live app is healthy.
+
+```text
+git push (main)
+       │
+       ▼
+┌──────────────────────────┐
+│        API tests         │  pytest, no API keys needed
+└────────────┬─────────────┘
+             ▼
+┌──────────────────────────┐
+│  Docker build + publish  │  image pushed to GitHub Container Registry
+└────────────┬─────────────┘
+             ▼
+┌──────────────────────────┐
+│  Deploy to Azure         │  OIDC login, exact image tag from this run
+└────────────┬─────────────┘
+             ▼
+┌──────────────────────────┐
+│  /health smoke test      │  retries while the app starts
+└──────────────────────────┘
+```
+
+![CI/CD pipeline run](assets/ci-pipeline.png)
+
+![Azure Container Apps overview](assets/azure-overview.png)
+
+### What each stage does
+
+1. **API tests** — 7 `pytest` tests run on every push and pull request.
+2. **Build and publish** — on `main` only, the image is built and pushed to GitHub Container Registry, tagged `latest` and `sha-<commit>`.
+3. **Deploy** — the pipeline signs in to Azure with OIDC and updates the container app to the exact image tag built in that run.
+4. **Smoke test** — the pipeline calls `/health` on the live app and retries up to 24 times, so a slow start from zero replicas does not cause a false failure. If the app never responds, the pipeline fails.
+
+### Design decisions
+
+* **No secrets in the image or in GitHub.** The Gemini and Groq keys are configured in Azure and provided to the container at runtime. GitHub only stores the identifiers needed to sign in to Azure.
+* **OIDC instead of a stored password.** The pipeline gets a short-lived token from GitHub when it runs, so no Azure password is saved anywhere. The identity it signs in with only has access to the project's single resource group.
+* **Deploy by commit tag, not `latest`.** Each deployment points to a specific image, so it is traceable and any previous version can be redeployed.
+* **Scale to zero, single replica.** The app scales down to zero when idle and never runs more than one replica, which keeps cost under control. The trade-off is a slower first request after a period of inactivity.
+* **Compatibility constraints on critical dependencies.** PyTorch is pinned to a specific CPU build, and `transformers` is limited to versions below 5, so the image built in CI works with the libraries it was tested with.
+
+### Testing
+
+The 7 API tests replace the RAG pipeline with a fake one, so they need no API keys, no models and no vector database. They cover the health endpoint, answers with sources, input validation (empty and too-long questions), and error handling (rate limit, service unavailable, unexpected error).
+
+The 5 guardrail cases are run manually before releases and are not part of the pipeline. They call the live LLM on a free tier, where rate limits and small wording differences would make an automated check fail for reasons unrelated to the code. Their results are reported in the guardrails section above.
+
+### Observability
+
+Container logs are collected in an Azure Log Analytics workspace and can be followed live from the Azure log stream. Each request logs the duration of query condensation, retrieval and generation, which makes slow steps easy to spot.
+
+### A deployment lesson
+
+The first image built by CI crashed on Azure at startup, even though the same app worked locally. The log stream showed a startup error in the `transformers` library: the build had pulled a newer major version of `transformers` that did not work with the pinned CPU build of PyTorch. I limited `transformers` to versions below 5, pushed the fix, and the pipeline rebuilt and redeployed the app.
+
+### Next step
+
+A retrieval-quality check in CI: run the 42 retrieval cases with the deployed strategy and fail the build if Hit@3 drops below a set threshold. It would need no LLM keys, since retrieval does not call the LLM.
 
 ---
 
@@ -585,16 +656,16 @@ That is intentional to acknowledge rather than hide:
 
 **Ongoing / portfolio project**
 
-The core RAG pipeline, evaluation framework, conversational handling, guardrails, source tracing, and Docker packaging are implemented.
+The core RAG pipeline, evaluation framework, conversational handling, guardrails, source tracing, Docker packaging, automated API tests, and a CI/CD pipeline that deploys to Azure Container Apps are implemented.
 
 The current retrieval configuration is **hybrid retrieval + cross-encoder reranking**, based on the measured results of the project's custom evaluation set.
 
 Future improvements may include:
 
+* a retrieval-quality check in CI;
 * stronger evaluation coverage for conversational queries;
 * better handling of ambiguous references;
-* additional retrieval evaluation cases;
-* deployment optimization.
+* additional retrieval evaluation cases.
 
 ---
 

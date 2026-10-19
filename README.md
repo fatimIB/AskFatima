@@ -16,7 +16,7 @@ I wanted to build a system that could:
 * protect the system against common prompt-injection and off-topic requests;
 * and, most importantly, allow me to **measure and compare engineering decisions instead of adding components blindly**.
 
-[▶Watch the AskFatima demo](https://drive.google.com/file/d/1MyQjdPe6VC_tC6Wb44TS0nLJVPWwSgcQ/view?usp=sharing)
+[▶Watch the AskFatima demo](https://drive.google.com/file/d/1MyQjdPe6VC_tC6Wb44TS0nLJVPWwSgcQ/view?usp=sharing) or Test App [▶Try It](https://askfatima.graymushroom-63b9725d.francecentral.azurecontainerapps.io/)
 
 ---
 

@@ -1,4 +1,4 @@
-name: CI
+name: CI/CD
 
 on:
   push:
@@ -36,6 +36,9 @@ jobs:
       contents: read
       packages: write
 
+    outputs:
+      image_tag: ${{ steps.image-tag.outputs.image_tag }}
+
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
@@ -59,6 +62,11 @@ jobs:
             type=raw,value=latest
             type=sha
 
+      - name: Set exact deployment image tag
+        id: image-tag
+        shell: bash
+        run: echo "image_tag=sha-${GITHUB_SHA::7}" >> "$GITHUB_OUTPUT"
+
       - name: Build and push image
         uses: docker/build-push-action@v6
         with:
@@ -66,3 +74,75 @@ jobs:
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
+
+  deploy:
+    needs: build-and-publish
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    permissions:
+      contents: read
+      id-token: write
+
+    steps:
+      - name: Log in to Azure using OIDC
+        uses: azure/login@v3
+        with:
+          client-id: ${{ secrets.AZURE_CLIENT_ID }}
+          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+          subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+
+      - name: Install or update Container Apps CLI extension
+        run: az extension add --name containerapp --upgrade --yes
+
+      - name: Deploy the exact image built in this run
+        env:
+          IMAGE_TAG: ${{ needs.build-and-publish.outputs.image_tag }}
+        run: |
+          az containerapp update \
+            --name askfatima \
+            --resource-group rg-askfatima \
+            --image "ghcr.io/fatimib/askfatima:${IMAGE_TAG}"
+
+      - name: Show active revision
+        run: |
+          az containerapp revision list \
+            --name askfatima \
+            --resource-group rg-askfatima \
+            --query "[?properties.active].name" \
+            --output tsv
+
+      - name: Smoke test application health
+        shell: bash
+        run: |
+          APP_FQDN="$(az containerapp show \
+            --name askfatima \
+            --resource-group rg-askfatima \
+            --query properties.configuration.ingress.fqdn \
+            --output tsv)"
+
+          if [ -z "$APP_FQDN" ]; then
+            echo "Could not retrieve the application's public hostname."
+            exit 1
+          fi
+
+          HEALTH_URL="https://${APP_FQDN}/health"
+
+          for attempt in $(seq 1 24); do
+            echo "Health check attempt ${attempt}/24"
+
+            if curl --fail --silent --show-error \
+              --connect-timeout 5 --max-time 15 "$HEALTH_URL"; then
+              echo
+              echo "Health check passed."
+              exit 0
+            fi
+
+            if [ "$attempt" -lt 24 ]; then
+              sleep 5
+            fi
+          done
+
+          echo "Health check failed after all retries."
+          exit 1
